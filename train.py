@@ -1,4 +1,4 @@
-import sklearn
+from sklearn import datasets
 import torch
 from torch import Tensor
 
@@ -78,7 +78,7 @@ def preprocess(X, y) -> tuple[Tensor, Tensor, Tensor, Tensor]:
 
 def main(epochs: int = 100):
     # Load the data
-    X, y = sklearn.datasets.load_breast_cancer(return_X_y=True)
+    X, y = datasets.load_breast_cancer(return_X_y=True)
     # Preprocess the data
     train_x, train_y, test_x, test_y = preprocess(X, y)
     # # Train and find the model
