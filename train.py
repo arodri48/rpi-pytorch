@@ -1,4 +1,5 @@
 from sklearn import datasets
+from sklearn import model_selection
 import torch
 from torch import Tensor
 
@@ -67,7 +68,7 @@ def train(train_x: Tensor, train_y: Tensor, test_x: Tensor, test_y: Tensor,
 
 def preprocess(X, y) -> tuple[Tensor, Tensor, Tensor, Tensor]:
     # Split the data into training and test sets
-    train_x, test_x, train_y, test_y = sklearn.model_selection.train_test_split(X, y, test_size=0.2,
+    train_x, test_x, train_y, test_y = model_selection.train_test_split(X, y, test_size=0.2,
                                                                                 stratify=y, random_state=42)
     # Convert the data to PyTorch tensors
     train_x = torch.tensor(train_x, dtype=torch.float32).to(DEVICE)
